@@ -2,7 +2,6 @@
 Olimpia Milano - Cantù | 55-60 -->
 
 <?php 
-
     $nba = [
         [
                 "teamHome" => "Atlanta Hawks",
@@ -22,8 +21,12 @@ Olimpia Milano - Cantù | 55-60 -->
                 "teamAway" => "Toronto Raptors",
                 "teamAwayScore" => "99",
         ],
-    ]
-
+    ];
+    
+    echo "<h2>Primo metodo</h2>";
+    for ($i = 0; $i < count($nba); $i++){
+        echo "{$nba[$i]["teamHome"]} - {$nba[$i]["teamAway"]} | {$nba[$i]["teamHomeScore"]} - {$nba[$i]["teamAwayScore"]}<br>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,20 +38,29 @@ Olimpia Milano - Cantù | 55-60 -->
     <title>NBA</title>
 </head>
 <body>
-    
-    <?php 
-        echo "<pre>";
-        var_dump($nba);
-        echo "</pre>"; 
-    ?>
-
-    <h1>Risultati NBA</h1>
+    <h1>Ricordati di premere "Ctrl + U"</h1>
     <ul>
-        <?php  
-            for ($i = 0; $i <= count($nba[$i]); $i++)
-                 echo "<li>{$nba[$i]['teamHome']} - {$nba[$i]['teamAway']} | {$nba[$i]['teamHomeScore']} - {$nba[$i]['teamAwayScore']}</li>"
+        <li><h2>Secondo metodo</h2></li>
+        <?php
+            for ($i = 0; $i < count($nba); $i++){
+                echo "<li>{$nba[$i]["teamHome"]} - {$nba[$i]["teamAway"]} | {$nba[$i]["teamHomeScore"]} - {$nba[$i]["teamAwayScore"]}</li>";
+            }
         ?>
-    </ul>
 
+        <li><h2>Terzo metodo</h2></li>
+        <?php for ($i = 0; $i < count($nba); $i++){ ?>
+                <li><?php echo $nba[$i]["teamHome"] ?> - <?php echo $nba[$i]["teamAway"]?> | <?php echo $nba[$i]["teamHomeScore"] ?> - <?php echo $nba[$i]["teamAwayScore"] ?></li>
+        <?php } ?>
+
+        <li><h2>Quarto metodo</h2></li>
+        <?php for ($i = 0; $i < count($nba); $i++){ ?>
+                <li><?= $nba[$i]["teamHome"] ?> - <?= $nba[$i]["teamAway"]?> | <?= $nba[$i]["teamHomeScore"] ?> - <?= $nba[$i]["teamAwayScore"] ?></li>
+        <?php } ?>
+
+        <li><h2>Quinto metodo</h2></li>
+        <?php for ($i = 0; $i < count($nba); $i++): ?>
+                <li><?= $nba[$i]["teamHome"] ?> - <?= $nba[$i]["teamAway"]?> | <?= $nba[$i]["teamHomeScore"] ?> - <?= $nba[$i]["teamAwayScore"] ?></li>
+        <?php endfor; ?>
+    </ul>
 </body>
 </html>
